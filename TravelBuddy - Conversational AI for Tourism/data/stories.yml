@@ -1,0 +1,526 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+
+# - story: near by places
+#   steps:
+#   - intent: nearby
+#   - action: utter_near
+#   - intent: address
+#   - action: 
+
+# - story: user interest
+#   steps:
+#   - intent: interest
+#   - action: action_place
+
+
+# - story: user interest 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: interest
+#   - action: action_place
+#   - intent: nearby
+#   - action: utter_near
+#   - intent: address
+#   # - action: user_add_form
+
+
+# ## Example Story
+# - story: user_add_form_story
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: nearby
+#   - action: utter_near
+#   - intent: address
+#   - action: user_add_form
+#   - active_loop: user_add_form
+#   - slot_was_set:
+#     - requested_slot: user_address
+#   - action: utter_interest
+#   - intent: interest
+#   - action: action_place
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+# - story: generate text
+#   steps:
+#   - intent: text_generation
+#   - action: action_generate_text
+
+# - story: why india
+#   steps:
+#   - intent: why_india
+#   - action: utter_whyindia
+
+
+# # - story: respond to chitchat/ask_name
+# #   steps:
+# #   - intent: user_name
+# #   - action: utter_name
+
+
+# - story: why anyone should travel
+#   steps:
+#   - intent: why_travel
+#   - action: utter_travel
+
+
+# - story: is india safe
+#   steps:
+#   - intent: is_safe
+#   - action: utter_safe
+
+# - story: indian states
+#   steps:
+#   - intent: states_india
+#   - action: utter_indian_states
+
+
+
+
+- story: ask weather happy path
+  steps:
+  - intent: weather
+  # - action: utter_greet
+  - action: action_get_weather
+  - intent: weather_city
+    entities:
+    - location: Mumbai
+  - slot_was_set:
+    - location: Mumbai
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+
+- story: wikipedia search
+  steps:
+  - intent: city
+    entities:
+    - location: ulhasnagar
+  - slot_was_set:
+    - location: ulhasnagar
+  - action: action_wiki
+  - slot_was_set:
+    - location: null
+
+- story: ask weather with city happy path
+  steps:
+  - intent: weather_city
+  # - action: utter_greet
+# 
+    entities:
+    - location: Delhi
+  - slot_was_set:
+    - location: Delhi
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: address
+  - action: action_place
+
+- story: interactive_story_2
+  steps:
+  - intent: user_tour
+  - action: action_place
+  - intent: address
+    # entities:
+    # - user_address: dadar east
+  - slot_was_set:
+    - user_address: dadar east
+    # entities:
+    # - user_interest: beaches
+  - slot_was_set:
+    - user_interest: beaches
+  - action: action_place
+#   - slot_was_set: user_interest
+#     - user_interest: null
+#   - intent: wiki_info
+#     entities:
+#     - location: manali
+#   - action: action_wiki
+
+- story: interactive_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: city
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: action_wiki
+  - slot_was_set:
+    - location: null
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather_city
+    entities:
+    - user_address: dadar
+  - slot_was_set:
+    - user_address: dadar
+  - action: action_get_weather
+  # - intent: wiki_info
+  #   entities:
+  #   - location: chennai
+  # - slot_was_set:
+  #   - location: chennai
+  # - action: action_wiki
+  # - slot_was_set:
+  #   - location: null
+  - intent: weather_city
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+
+
+
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: user_tour
+  - action: action_place
+  - intent: address
+    entities:
+    - user_interest: temples
+    - user_address: ulhasnagar railway station
+  - slot_was_set:
+    - user_address: ulhasnagar railway station
+  - slot_was_set:
+    - user_interest: temples
+  - action: action_place
+  - intent: address
+    entities:
+    - user_interest: thatres
+    - user_address: bhopal
+  - slot_was_set:
+    - user_interest: thatres
+  - slot_was_set:
+    - user_address: bhopal
+  - action: action_place
+
+# - story: interactive_story_1
+#   steps:
+#   # - intent: address
+#   #   entities:
+#   #   - user_interest: historic
+#   #   - user_address: Dakshineswar, Kolkata, West Bengal 700076
+#   - slot_was_set:
+#     - user_interest: historic
+#   - slot_was_set:
+#     - user_address: Dakshineswar, Kolkata, West Bengal 700076
+#   - action: action_place
+
+- story: interactive_story_1
+  steps:
+  - intent: address
+    entities:
+    - user_interest: historic
+    - user_address: ulhasnagar 421004
+  - slot_was_set:
+    - user_address: ulhasnagar 421004
+  - slot_was_set:
+    - user_interest: historic
+  - action: action_place
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: address
+    entities:
+    - user_interest: temples
+    - user_address: nashik
+  - slot_was_set:
+    - user_address: nashik
+  - slot_was_set:
+    - user_interest: temples
+  - action: action_place
+  - intent: address
+    entities:
+    - user_interest: church
+    - user_address: banglore
+  - slot_was_set:
+    - user_address: banglore
+  - slot_was_set:
+    - user_interest: church
+  - action: action_place
+
+
+
+- story: interactive_story_2
+  steps:
+  - intent: address
+    entities:
+    - user_interest: waterfalls
+    - user_address: ranchi
+  - slot_was_set:
+    - user_address: ranchi
+  - slot_was_set:
+    - user_interest: waterfalls
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+
+- story: interactive_story_1
+  steps:
+  - intent: city
+    entities:
+    - location: jaipur
+  - slot_was_set:
+    - location: jaipur
+  - action: action_wiki
+  - slot_was_set:
+    - location: null
+  - intent: weather_city
+    entities:
+    - location: jaipur
+  - slot_was_set:
+    - location: jaipur
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+  - intent: address
+    entities:
+    - user_interest: mosques
+    - user_address: kolkata
+  - action: action_place
+  - intent: address
+    entities:
+    - user_interest: beach
+    - user_address: surat
+  - slot_was_set:
+    - user_address: surat
+  - slot_was_set:
+    - user_interest: beach
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+  - intent: city
+    entities:
+    - location: jaipur
+  - slot_was_set:
+    - location: jaipur
+  - action: action_wiki
+  - slot_was_set:
+    - location: null
+
+- story: interactive_story_1
+  steps:
+  - intent: address
+    entities:
+    - user_interest: namaste
+  - slot_was_set:
+    - user_interest: namaste
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: questions
+  - action: action_out_of_scope
+  # - intent: city
+  #   entities:
+  #   - location: saras baug
+  # - action: action_wiki
+  # - slot_was_set:
+  #   - location: null
+  # - intent: city
+  #   entities:
+  #   - location: lal mahal
+  # - action: action_wiki
+  - slot_was_set:
+    - location: null
+  - intent: city
+    entities:
+    - location: gawhati
+  - slot_was_set:
+    - location: gawhati
+  - action: action_wiki
+  - slot_was_set:
+    - location: null
+  - intent: questions
+  - action: action_out_of_scope
+  # - intent: questions
+  #   entities:
+  #   - location: jodhpur
+  # - slot_was_set:
+  #   - location: jodhpur
+  # - action: action_out_of_scope
+  - intent: address
+    entities:
+    - user_interest: tempels
+    - user_address: smt
+    - user_address: indira gandhi college of engineering
+  - slot_was_set:
+    - user_address: indira gandhi college of engineering
+  - slot_was_set:
+    - user_interest: tempels
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+  - intent: address
+    entities:
+    - user_interest: rivers
+    - user_address: nashik, maharashtra
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+  - intent: city
+    entities:
+    - location: airoli
+  - slot_was_set:
+    - location: airoli
+  - action: action_wiki
+  - slot_was_set:
+    - location: null
+  # - intent: wiki_info
+  #   entities:
+  #   - location: lal killa
+  # - action: action_wiki
+  # - slot_was_set:
+  #   - location: null
+  - intent: questions
+  - action: action_out_of_scope
+  - intent: questions
+  - action: action_out_of_scope
+
+- story: interactive_story_1
+  steps:
+  - intent: user_tour
+    entities:
+    - user_interest: temples
+  - slot_was_set:
+    - user_interest: temples
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+  - intent: user_tour
+  - action: action_place
+  - intent: weather
+  - action: action_get_weather
+  - intent: questions
+  - action: action_out_of_scope
+  - intent: questions
+    entities:
+    - user_address: ulhasnagar
+  - slot_was_set:
+    - user_address: ulhasnagar
+  - action: action_out_of_scope
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_tour
+  - action: action_place
+  - intent: weather
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+  - intent: weather_city
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+  - intent: address
+    entities:
+    - user_interest: temples
+    - user_address: ulhasnagar
+  - slot_was_set:
+    - user_address: ulhasnagar
+  - slot_was_set:
+    - user_interest: temples
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+  - intent: user_tour
+    entities:
+    - user_interest: temples
+  - slot_was_set:
+    - user_interest: temples
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null
+  - intent: questions
+  - action: action_out_of_scope
+  - intent: weather
+  - action: action_get_weather
+  - slot_was_set:
+    - location: null
+
+- story: interactive_story_1
+  steps:
+  - intent: user_tour
+  - action: action_place
+  - slot_was_set:
+    - user_address: null
+  - slot_was_set:
+    - user_interest: null

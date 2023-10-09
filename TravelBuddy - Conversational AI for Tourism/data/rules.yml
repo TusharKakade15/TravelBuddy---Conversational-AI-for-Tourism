@@ -1,0 +1,69 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: action_out_of_scope
+
+- rule: qna
+  steps:
+  - intent: questions
+  - action: action_out_of_scope
+
+- rule: for more details
+  steps:
+  - intent: wiki_info
+  - action: action_out_of_scope
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: action_out_of_scope
+
+# # rules:
+# - rule: Activate form
+#   steps:
+#   - intent: nearby
+#   - action: utter_near
+#   - intent: address
+#   - action: user_add_form
+#   - active_loop: user_add_form
+# Activate the form
+# - rule: Activate form
+#   steps:
+#   - intent: address
+#   - action: user_add_form
+#   - active_loop: user_add_form
+#   - slot_was_set:
+#     - user_address: null
+
+# - rule: 
+# # rules:
+# - rule: Submit form
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: user_add_form
+#   steps:
+#   # Form is deactivated
+#   - action: user_add_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - user_address: user_address
+#     # - user_interest: null
+#   # The actions we want to run when the form is submitted.
+#   # - action: user_add_form
+#   - action: utter_interest
+#   # - action: action_place
+#   # - action: utter_slots_values

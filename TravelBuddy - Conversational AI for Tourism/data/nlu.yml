@@ -1,0 +1,370 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - namaste
+    - TravelBuddy
+    - hey TravelBuddy
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - howdy
+    - hii
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yup
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - not at all
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what is your name?
+    - may I know your name?
+- intent: user_tour
+  examples: |
+    - what are some touist places near me?
+    - nearby tourist places
+    - tourist paces near me
+    - travelling places near me
+    - What are some tourist places near me?
+    - Can you recommend some nearby tourist attractions?
+    - I'm looking for some fun things to do nearby. What are some popular tourist spots?
+    - I want to explore the local area. Where are some must-see tourist places around here?
+    - are there any tourist attraction near me
+    - I'm new to the area and want to check out some tourist hotspots. What are my options?
+    - are there any [beaches](user_interest) near me
+    - i would love to visit [historic](user_interest) places
+    - Where are some popular tourist spots nearby
+    - What are some must-see tourist places around there?
+    - tourist places near me
+    - [temples](user_interest) near me
+- intent: address
+  examples: |
+    - [historic](user_interest) places near [chandni chowk,delhi](user_address)
+    - [cultural](user_interest) places near [123 Main Street](user_address)?
+    - [beaches](user_interest) nearby [456 Elm Avenue](user_address)?
+    - [church](user_interest) near [42, Satpula Road, Munirka, New Delhi](user_address) hotel.
+    - [mounuments](user_interest) near [Model Colony, Shivaji Nagar, Pune](user_address).
+    - [waterfalls](user_interest) near [New Sanjay Nagar, Jalandhar](user_address).
+    - [forts](user_interest) near [holy family school, dadar -421023](user_address)
+    - [nature](user_interest) realted something near [smt. indira gandhi college of engineering](user_address)
+    - good [theater](user_interest) near [ghansoli railway station](user_address)
+    - [mountains](user_interest) near [sarojini market, delhi](user_address)
+    - [lakes](user_interest) near address [10, 2nd Cross, 5th Main, HAL 2nd Stage, Indiranagar, Bangalore, Karnataka 560038, India](user_address)
+    - [beaches](user_interest) nearby [Flat No. 501, Palm Grove Heights, Link Road, Malad West](user_address)
+    - [river](user_interest) nearby [Friends Colony, Sector 11, Gurgaon, Haryana 122001](user_address)
+    - [castle](user_interest) nearby [House No. 567, Sector 15-A, Chandigarh](user_address)
+    - [historic architecture](user_interest) nearby [Vasant Kunj Enclave, New Delhi](user_address)
+    - [architecture](user_interest) nearby [Kaveri Apartments, Baner Road, Baner, Pune-411045](user_address)
+    - [aquarium](user_interest) nearby [56, Sector 14, Gurgaon, Haryana 122001, India](user_address)
+    - near [Sector 15, Noida, Uttar Pradesh 201301](user_address) some [beaches](user_interest)
+    - [2nd Floor, Prabhu Niwas, Shivaji Nagar, Nagpur, Maharashtra 440010](user_address) interest is [entertainment](user_interest)
+    - [Shanthi Nagar, Adyar, Chennai](user_address) [beaches](user_interest)
+    - [jija mata mandir, bhopal east](user_address) want to go to [temple](user_interest)
+    - [ulhasnagar-421004](user_address) interest is [zoo](user_interest)
+    - [beaches](user_interest) nearby [holy family school ulhasnagar](user_address)
+    - [tourist](user_interest) places near [ghansoli east](user_address)
+    - [beaches](user_interest) near [panaji, goa](user_address)
+    - [beaches](user_interest) near [chandni chowk, delhi](user_address)
+    - [temples](user_interest) near [ulhasnagar railway station](user_address)
+    - [historic](user_interest) places near [Dakshineswar, Kolkata, West Bengal 700076](user_address)
+    - [historic](user_interest) places near [ulhasnagar 421004](user_address)
+    - [historic](user_interest) places in [mumbai](user_address)
+    - [beaches](user_interest) in [panaji, goa](user_address)
+    - [beaches](user_interest) in [chandni chowk, delhi](user_address)
+    - [parks](user_interest) in [ulhasnagar railway station](user_address)
+    - [temples](user_interest) in [airoli](user_address)
+    - [beach](user_interest) in [dadar](user_address)
+    - [tempels](user_interest) near [indira gandhi college of engineering](user_address)
+    - [rivers](user_interest) near [nashik, maharashtra](user_address)
+    - [temples](user_interest) in [ulhasnagar](user_address)
+- intent: weather
+  examples: |
+    - tell me the weather
+    - I want to know the weather
+    - Tell me the weather please
+    - What is the weather today?
+    - What's the weather?
+    - What's the temperature right now?
+    - I want to know the temperature
+    - Anybody notice the weather today?
+    - Are the roads flooded today?
+    - Awful weather, isn't it?
+    - Do you know the weather forecast for today?
+    - Do I need to carry an umbrella today?
+    - Do I need to carry an umbrella tomorrow?
+    - How is the weather today?
+    - How cold is it going to get today?
+    - How cold is it going to be tomorrow?
+    - How hot is it going to get today?
+    - How hot is it going to be tomorrow?
+    - How humid is it going to get today?
+    - How humid is it going to be tomorrow?
+    - How rainy is it going to be today?
+    - How rainy is it going to be tomorrow?
+    - How's the weather?
+    - How's the weather out in the country today?
+    - I wonder if there will be a storm?
+    - Is it cold outside?
+    - Is it expected to rain?
+    - Is it expected to snow?
+    - Is it snowing outside?
+    - Is it warm or cold?
+    - Is it windy out?
+    - It is so cloudy today, isn't it?
+    - It is so sunny today, isn't it?
+    - Is there much flooding on the roads today?
+    - Lovely day, huh?
+    - Nice weather today, isn't it?
+    - So, what will the weather be like today?
+    - Tell me, what is the weather like today?
+    - Terrible weather, isn't it?
+    - The forecast?
+    - What do you think the weather looks like?
+    - What is the humidity level right now?
+    - What is the temperature outside?
+    - What is the temperature?
+    - What is the weather expected to be like?
+    - What is the weather forecast saying?
+    - What is the weather forecast today?
+    - What temperature do you think it is?
+    - What's it like out there?
+    - What's it like out?
+    - What's the humidity level right now?
+    - What's the temperature like out there?
+    - What's the temperature like?
+    - What's the temperature today?
+    - What's the temperature?
+    - What's the weather forecast?
+    - What's the weather like?
+    - What's the forecast like?
+    - What's the forecast?
+    - What's the weather like today?
+    - Will the weather keep up?
+    - whats the weather
+    - whats the weather around
+- intent: weather_city
+  examples: |
+    - Tell me the weather in [Paris](location)
+    - I want to know the weather in [Mumbai](location)
+    - Weather in [Delhi](location)
+    - How's the weather in [Banglore](location)
+    - I want to know the temperature in [London](location)
+    - weather in [dadar](location)
+    - whats the weather of [panaji](location)
+    - [madurai](location) weather
+    - weather of [jaipur](location).
+    - current forecast of [jodhpur](location)
+    - is it sunny in [meghalaya](location)
+    - what is the weather of [chennai](location)
+    - forecast of [noida](location)
+    - weather in [mumbai](location)
+    - weather of [shimla](location)
+    - weather in [jaipur](location)
+    - weather iof [delhi](location)
+- intent: wiki_info
+  examples: |
+    - information about [Shimla](location)
+    - more details of [ulhasnagar](location)
+    - tell me more on [kalyan](location)
+    - Give summary on [hyderabad](location)
+    - information about [manali](location)
+    - why [mumbai](location) is famous
+    - more on [taj mahal](location)
+    - more detail on [chennai](location)
+    - more about [chandni chowk](location)
+    - short information about [taj mahal](location)
+    - tell me more about [lal killa](location)
+- intent: city
+  examples: |
+    - [Mumbai](location)
+    - [Delhi](location)
+    - [Bangalore](location)
+    - [Pune](location)
+    - [Kerala](location)
+    - [Paris](location)
+    - [London](location)
+    - [Miami](location)
+    - [Prague](location)
+    - [Hyderabad](location)
+    - [Ahmedabad](location)
+    - [Chennai](location)
+    - [Kolkata](location)
+    - [Surat](location)
+    - [Goa](location)
+    - [Jaipur](location)
+    - [Nagpur](location)
+    - [Indore](location)
+    - [Visakhapatnam](location)
+    - [Lucknow](location)
+    - [Kanpur](location)
+    - [Patna](location)
+    - [Nashik](location)
+    - [Thane](location)
+    - [Navi Mumbai](location)
+    - [Ghansoli](location)
+    - [Ranchi](location)
+    - [Amritsar](location)
+    - [Manali](location)
+    - [Shimla](location)
+    - [Coimbatore](location)
+    - [Chandigarh](location)
+    - [Belapur](location)
+    - [Kharghar](location)
+    - [Kalamboli](location)
+    - [Kamothe](location)
+    - [Seawoods](location)
+    - [Panvel](location)
+    - [Taloja](location)
+    - [Airoli](location)
+    - [Vashi](location)
+    - [Kopar Khairane](location)
+    - [Sanpada](location)
+    - [Nerul](location)
+    - [Ulwe](location)
+    - [Bhopal](location)
+    - [Vadodara](location)
+    - [Ludhiana](location)
+    - [Agra](location)
+    - [Kochi](location)
+    - [Varanasi](location)
+    - [Srinagar](location)
+    - [Guwahati](location)
+    - [Jammu](location)
+    - [jaipur](location)
+    - [gawhati](location)
+    - [jodhpur](location)
+- intent: out_of_scope
+  examples: |
+    - What is 2 + 2?
+    - I want to order food
+    - What is the time?
+    - Who will win the race tomorrow?
+    - What is created when the vocal folds are spread and do not vibrate?
+    - What does URL mean?
+    - What is another name for ancestor worship?
+    - how many states are in India?
+    - Give me some information about indian states
+    - Can you share how many states in india
+    - Let me know some information about indian states?
+    - how many Union territories are present in the country.
+    - Is India safe to travel
+    - While travelling to india are there any saftey concerns
+    - How safe is India
+    - let me know how safe in india
+    - why should we travel?
+    - are their any benifits of trvelling
+    - what is travel means in lfe
+    - why travelling is important in life
+    - is travelling important in life?
+    - What is the purpose of life?
+    - Why do we exist?
+    - Why is earth round?
+    - What is a solar system?
+- intent: questions
+  examples: |
+    - restaurants in goa
+    - hotels at kochi
+    - some information about indian culture
+    - history of india
+    - i have two days stay in manali, Can you suggest some places to visit in that time
+    - places to visit in india
+    - things to do in shillong
+    - best tourist spots in guwahati
+    - find some hotels near raipur
+    - tourist places near madurai
+    - mountains near mumbai
+    - places to visit during winter
+    - suggest some good places in pune
+    - restaurants near shimla
+    - What is the best time of year to visit jodhpur?
+    - What are the must-try foods in satara
+    - What are some popular festivals and events in India?
+    - shopping center in jaipur
+    - best places for shopping in lucknow
+    - food stalls in jalna
+    - where do i get food near panaji
+    - taj mahal
+    - saras baug
+    - lal killa
+    - juhu beach
+    - ramoji film city
+    - lal mahal
+    - rajgad fort
+    - torna fort
+    - food stalls near me
+    - food stalls near [ulhasnagar](user_address)
+    - restourants near me

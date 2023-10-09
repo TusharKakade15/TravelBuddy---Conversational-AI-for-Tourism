@@ -1,0 +1,77 @@
+version: '3.1'
+intents:
+- address
+- affirm
+- bot_challenge
+- city
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- out_of_scope
+- questions
+- user_tour
+- weather
+- weather_city
+- wiki_info
+entities:
+- location
+- user_interest
+- user_address
+- name
+responses:
+  utter_greet:
+  - text: Hey! I am TravelBuddy, You can ask me indian travel related questions, such as "Historic places near jaipur" or weather questions like "weather in Chennai" or If you want to know more information about something just ask "More about Taj Mahal"
+  utter_cheer_up:
+  - text: 'I am so sorry to here '
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  - text: I'm glad to hear that!
+  - text: Great!
+  utter_goodbye:
+  - text: Bye
+  - text: Goodbye! See you shortly.
+  - text: Goodbye! I'll see you around.
+  utter_iamabot:
+  - text: I am a bot called TravelBuddy.
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: name
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: location
+  user_address:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_address
+  user_interest:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_interest
+actions:
+- action_place
+- utter_greet
+- action_get_weather
+- action_out_of_scope
+- action_wiki
+- utter_tour
+- action_generate_text
